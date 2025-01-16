@@ -6,8 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Movie project</h1>
+    {% load static %}
+    
     {% include 'index.html' %}
+    <center><img src="{% static 'images/interstellar.jpg' %}" alt="interstellar" srcset="" height="500" width="500"></center>
+    {% block content %}
+    <p>
+        place any content
+    </p>
+    {% endblock content %}
     
 </body>
 </html>
