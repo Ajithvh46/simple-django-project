@@ -6,9 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    {% extends 'blank_layout.html' %}
     {% block content %}
-    <h1><center>List</center></h1>
+    <h1><center>List of movies</center></h1>
+    {% for movie_obj in movie_data %}
+    <h1>Title:{{ movie_obj.title}}</h1>
+    <h1>Summary:{{ movie_obj.summary|default:'No data available' }}</h1>
+    <h1>Year:{{ movie_obj.year }}</h1>
+    {% if movie_obj.success %}
+        <h3> Movie was a success at that time </h3>
+    {% endif %}
+    {% endfor %}
     {% endblock content %}
 </body>
 </html>
