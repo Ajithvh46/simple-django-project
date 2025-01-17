@@ -15,23 +15,27 @@ def list_view(request):
         'year':2014,
         'summary':'Science fiction',
         'success':True,
+        'img':'interstellar.jpg',
         },
         {'title':'Inception',
         'year':2010,
         'summary':'Science fiction',
         'success':True,
+        'img':'inception.jpg',
         },
         {
         'title':'Marco',
         'year':2024,
         'summary':'Action movie',
         'success':True,
+        'img':'marco1.jpg',
         },
         {
         'title':'Goat',
         'year':2024,
         'summary':'',
         'success':False,
+        'img':'goat.jpg',
         }
         ]
         
