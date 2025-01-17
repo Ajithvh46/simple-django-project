@@ -6,6 +6,8 @@ def movie_review(request):
     return render(request,'index.html')
 
 def create_view(request):
+    if request.POST:
+        print(request.POST)
     return render(request,'create.html')
 
 def list_view(request):

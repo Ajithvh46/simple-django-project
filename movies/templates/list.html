@@ -7,7 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    {% block content %}
     <h1><center>List of movies</center></h1>
     {% for movie_obj in movie_data %}
 
@@ -20,7 +19,10 @@
         {% endif %}
 
     {% endfor %}
-
-    {% endblock content %}
+    <ul>
+        <li><a href="{% url 'create' %}">Create</a></li>
+        <li><a href="{% url 'edit' %}">Edit</a></li>
+        <li><a href="{% url 'list' %}">List</a></li>
+    </ul>
 </body>
 </html>
