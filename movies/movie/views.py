@@ -7,7 +7,9 @@ def movie_review(request):
 
 def create_view(request):
     if request.POST:
-        print(request.POST)
+        print(request.POST.get('title'))
+        print(request.POST.get('year'))
+        print(request.POST.get('summary'))
     return render(request,'create.html')
 
 def list_view(request):
