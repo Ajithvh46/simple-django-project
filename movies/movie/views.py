@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from . models import MovieInfo
 # Create your views here.
 
 def movie_review(request):
@@ -7,45 +7,18 @@ def movie_review(request):
 
 def create_view(request):
     if request.POST:
-        print(request.POST.get('title'))
-        print(request.POST.get('year'))
-        print(request.POST.get('summary'))
+        title=request.POST.get('title')
+        year=request.POST.get('year')
+        description=request.POST.get('summary')
+
+        movie_obj=MovieInfo(title=title,year=year,description=description)
+        movie_obj.save()
     return render(request,'create.html')
 
 def list_view(request):
-    movie_details={
-        'movie_data':[{
-        'title':'Interstellar',
-        'year':2014,
-        'summary':'Science fiction',
-        'success':True,
-        'img':'interstellar.jpg',
-        },
-        {'title':'Inception',
-        'year':2010,
-        'summary':'Science fiction',
-        'success':True,
-        'img':'inception.jpg',
-        },
-        {
-        'title':'Marco',
-        'year':2024,
-        'summary':'Action movie',
-        'success':True,
-        'img':'marco1.jpg',
-        },
-        {
-        'title':'Goat',
-        'year':2024,
-        'summary':'',
-        'success':False,
-        'img':'goat.jpg',
-        }
-        ]
-        
-    }
-
-    return render(request,'list.html',movie_details)
+    movie_set=MovieInfo.objects.all()
+    print(movie_set)
+    return render(request,'list.html',{'movies':movie_set})
 
 def edit_view(request):
     return render(request,'edit.html')
