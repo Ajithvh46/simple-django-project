@@ -9,10 +9,8 @@
    
     <h1><center>Create</center></h1>
     <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
-        Title:<input type="text" name="title"></input><br><br>
-        Year:<input type="number" name="year"></input><br><br>
-        Description:<input type="text" name="summary"></input><br><br>
-        <button type="submit">Create</button>
+       {{frm.as_p}}
+       <button type="'submit">create</button>
     </form>
     <ul>
         <li><a href="{% url 'create' %}">Create</a></li>
