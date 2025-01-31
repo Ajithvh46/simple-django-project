@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from . models import MovieInfo
 from . forms import MovieForm
 # Create your views here.
@@ -8,12 +8,13 @@ def movie_review(request):
 
 def create_view(request):
     frm=MovieForm()
-    if request.POST:
-        frm=MovieForm(request.POST)
+    if request.method == 'POST':
+        frm=MovieForm(request.POST,request.FILES)
         if frm.is_valid:
             frm.save()
-        else:
-            frm=MovieForm()
+            return redirect('list') 
+    else:
+        frm=MovieForm()
     return render(request,'create.html',{'frm':frm})
 
 def list_view(request):
